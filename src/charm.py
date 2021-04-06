@@ -11,6 +11,7 @@ develop a new k8s charm using the Operator Framework:
 """
 
 import logging
+import os
 
 from ops.framework import StoredState
 from ops.model import ActiveStatus
@@ -50,6 +51,8 @@ class BlockbookLbCharm(CharmBase):
             self.framework.observe(event, handler)
 
     def _on_install(self, event):
+
+        self.log.info("### Path: {}".format(os.getcwd()))
 
         self.unit.set_workload_version(VERSION)
 
