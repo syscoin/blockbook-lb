@@ -1,6 +1,5 @@
 import subprocess
 import logging
-import docker
 import os
 
 class BlockbookOps:
