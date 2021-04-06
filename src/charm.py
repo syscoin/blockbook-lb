@@ -18,6 +18,7 @@ from ops.charm import CharmBase
 from ops.main import main
 
 from blockbook_ops import BlockbookOps
+from watcher import Watcher
 from ports import open_port
 from version import VERSION
 
@@ -27,14 +28,17 @@ logger = logging.getLogger(__name__)
 class BlockbookLbCharm(CharmBase):
     """Charm the service."""
 
+    location = '/opt/coins/data/syscoin_testnet/backend/testnet3'
+
     _stored = StoredState()
+    _watcher = Watcher(location)
 
     def __init__(self, *args):
         super().__init__(*args)
 
         self.log = logging.getLogger(self.__class__.__name__)
 
-        self._ondemand_ops = BlockbookOps()
+        self._blockbook_ops = BlockbookOps()
 
         self._stored.set_default(things=[])
 
@@ -49,13 +53,31 @@ class BlockbookLbCharm(CharmBase):
 
         self.unit.set_workload_version(VERSION)
 
-        self.log.info("Installing docker")
-        self._ondemand_ops.setup_docker()
+        self.log.info("##### Installing docker")
+        self._blockbook_ops.setup_docker()
 
-        self.log.info("Start blockbook service")
-        self._ondemand_ops.setup_blockbook()
+        self.log.info("##### Cloning blockbook repo")
+        self._blockbook_ops.clone_blockbook()
 
-        self.log.info("Opening port")
+        self.log.info("##### Building Syscoin Testnet backend")
+        self._blockbook_ops.build_syscoin_testnet_backend()
+
+        self.log.info("##### Installing Syscoin Testnet backend")
+        self._blockbook_ops.install_syscoin_testnet_backend()
+
+        self.log.info("##### Starting Syscoin Testnet backend")
+        self._blockbook_ops.start_syscoin_testnet_backend()
+
+        self.log.info("##### Watching backend to sync")
+        Watcher(self.log)
+
+        self.log.info("##### Building Syscoin Testnet")
+        self._blockbook_ops.build_syscoin_testnet()
+
+        self.log.info("##### Starting Syscoin Testnet Blockbook")
+        self._blockbook_ops.start_syscoin_testnet()
+
+        self.log.info("##### Opening port")
         open_port(19035)
 
         self.unit.status = ActiveStatus("Blockbook running")
