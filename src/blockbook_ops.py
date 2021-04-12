@@ -34,7 +34,8 @@ class BlockbookOps:
 
     def build_syscoin_testnet_backend(self):
 
-        subprocess.call(["sh", os.path.join("scripts", "build-backend.sh")])
+        # subprocess.call(["sh", os.path.join("scripts", "build-backend.sh")])
+        os.system("cd blockbook && make -d all-syscoin_testnet")
 
     def install_syscoin_testnet_backend(self):
 
