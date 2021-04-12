@@ -30,28 +30,28 @@ class BlockbookOps:
         Utility method to start blockbook service
         """
 
-        subprocess.call(["sh", os.path.join("scripts", "clone-blockbook.sh")])
+        subprocess.call(["sudo", "sh", os.path.join("scripts", "clone-blockbook.sh")])
 
     def build_syscoin_testnet_backend(self):
 
-        subprocess.call(["sh", os.path.join("scripts", "build-backend.sh")])
+        subprocess.call(["sudo", "sh", os.path.join("scripts", "build-backend.sh")])
 
     def install_syscoin_testnet_backend(self):
 
-        subprocess.call(["sh", os.path.join("scripts", "install-backend.sh")])
+        subprocess.call(["sudo", "sh", os.path.join("scripts", "install-backend.sh")])
 
     def start_syscoin_testnet_backend(self):
 
         subprocess.call([
-            "systemctl", "start", "backend-syscoin-testnet.service"
+            "sudo", "systemctl", "start", "backend-syscoin-testnet.service"
         ])
 
     def build_syscoin_testnet(self):
 
-        subprocess.call(["sh", os.path.join("scripts", "build-app.sh")])
+        subprocess.call(["sudo", "sh", os.path.join("scripts", "build-app.sh")])
 
     def start_syscoin_testnet(self):
 
         subprocess.call([
-            "systemctl", "start", "blockbook-syscoin-testnet.service"
+            "sudo", "systemctl", "start", "blockbook-syscoin-testnet.service"
         ])
