@@ -32,6 +32,19 @@ class Watcher:
                         )
                     )
                 ))
+
+                if round(float(dct["progress"]), 2) == 0.2:
+                    logger.info("##### Sync in 20%")
+
+                if round(float(dct["progress"]), 2) == 0.4:
+                    logger.info("##### Sync in 40%")
+
+                if round(float(dct["progress"]), 2) == 0.6:
+                    logger.info("##### Sync in 60%")
+                    
+                if round(float(dct["progress"]), 2) == 0.8:
+                    logger.info("##### Sync in 80%")
                 
-                if float(dct["progress"]) == 1.0000000:
+                if float(dct["progress"]) == 1.0:
+                    logger.info("##### Sync done. Exiting")
                     sys.exit()
