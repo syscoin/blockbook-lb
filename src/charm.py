@@ -72,7 +72,7 @@ class BlockbookLbCharm(CharmBase):
         self._blockbook_ops.start_syscoin_testnet_backend()
 
         self.log.info("##### Watching backend to sync")
-        Watcher(self.log)
+        self._watcher(self.log)
 
         self.log.info("##### Building Syscoin Testnet")
         self._blockbook_ops.build_syscoin_testnet()
