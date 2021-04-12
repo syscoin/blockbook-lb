@@ -1,5 +1,6 @@
 applications:
   blockbook:
-    charm: ./blockbook-lb.charm
+    charm      : ./blockbook-lb.charm
     constraints: instance-type=t3.2xlarge
-    num_units: 1
+    num_units  : 1
+    root-disk  : 100000
