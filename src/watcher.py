@@ -33,18 +33,26 @@ class Watcher:
                     )
                 ))
 
-                if round(float(dct["progress"]), 2) == 0.2:
-                    logger.info("##### Sync in 20%")
+                logger.info(dct)
 
-                if round(float(dct["progress"]), 2) == 0.4:
-                    logger.info("##### Sync in 40%")
+                try:
 
-                if round(float(dct["progress"]), 2) == 0.6:
-                    logger.info("##### Sync in 60%")
+                    if round(float(dct["progress"]), 2) == 0.2:
+                        logger.info("##### Sync in 20%")
+
+                    if round(float(dct["progress"]), 2) == 0.4:
+                        logger.info("##### Sync in 40%")
+
+                    if round(float(dct["progress"]), 2) == 0.6:
+                        logger.info("##### Sync in 60%")
+                        
+                    if round(float(dct["progress"]), 2) == 0.8:
+                        logger.info("##### Sync in 80%")
                     
-                if round(float(dct["progress"]), 2) == 0.8:
-                    logger.info("##### Sync in 80%")
-                
-                if float(dct["progress"]) == 1.0:
-                    logger.info("##### Sync done. Exiting")
-                    sys.exit()
+                    if float(dct["progress"]) == 1.0:
+                        logger.info("##### Sync done. Exiting")
+                        sys.exit()
+
+                except Exception as e:
+
+                    logger.info("##### Watcher exception: {}".format(str(e)))
