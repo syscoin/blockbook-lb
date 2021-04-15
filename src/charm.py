@@ -11,6 +11,7 @@ develop a new k8s charm using the Operator Framework:
 """
 
 import logging
+import time
 import os
 
 from ops.framework import StoredState
@@ -72,7 +73,10 @@ class BlockbookLbCharm(CharmBase):
         self._blockbook_ops.start_syscoin_testnet_backend()
 
         self.log.info("##### Watching backend to sync")
-        self._watcher(self.log)
+        for i in range(60 * 12):
+            self.log.info("#### Sleep: {}".format(i))
+            time.sleep(1)
+        # self._watcher(self.log)
 
         self.log.info("##### Building Syscoin Testnet")
         self._blockbook_ops.build_syscoin_testnet()
