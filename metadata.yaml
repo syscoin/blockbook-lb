@@ -1,0 +1,12 @@
+name: blockbook-lb
+summary: Trezor blockbook provider
+maintainers:
+    - Elint Tech <contato@elint.com.br>
+description: |
+    Trezor Blockbook
+tags:
+    - Blockbook
+    - Blockchain
+
+series:
+    - focal
