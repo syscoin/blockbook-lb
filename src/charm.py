@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 class BlockbookLbCharm(CharmBase):
     """Charm the service."""
 
-    location = '/opt/coins/data/syscoin_testnet/backend/testnet3'
+    location = '/opt/coins/data/syscoin/backend'
 
     _stored = StoredState()
     _watcher = Watcher(location)
@@ -73,7 +73,7 @@ class BlockbookLbCharm(CharmBase):
         self._blockbook_ops.start_syscoin_testnet_backend()
 
         self.log.info("##### Watching backend to sync")
-        for i in range(60 * 20):
+        for i in range(60 * 50):
             self.log.info("#### Sleep: {}".format(i))
             time.sleep(1)
         # self._watcher(self.log)
@@ -85,7 +85,7 @@ class BlockbookLbCharm(CharmBase):
         self._blockbook_ops.start_syscoin_testnet()
 
         self.log.info("##### Opening port")
-        open_port(19035)
+        open_port(9193)
 
         self.unit.status = ActiveStatus("Blockbook running")
 
