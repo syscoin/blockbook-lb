@@ -64,13 +64,13 @@ class BlockbookLbCharm(CharmBase):
         self._blockbook_ops.clone_blockbook()
 
         self.log.info("##### Building Syscoin Testnet backend")
-        self._blockbook_ops.build_syscoin_testnet_backend()
+        self._blockbook_ops.build_syscoin_backend()
 
         self.log.info("##### Installing Syscoin Testnet backend")
-        self._blockbook_ops.install_syscoin_testnet_backend()
+        self._blockbook_ops.install_syscoin_backend()
 
         self.log.info("##### Starting Syscoin Testnet backend")
-        self._blockbook_ops.start_syscoin_testnet_backend()
+        self._blockbook_ops.start_syscoin_backend()
 
         self.log.info("##### Watching backend to sync")
         for i in range(60 * 50):
@@ -79,10 +79,10 @@ class BlockbookLbCharm(CharmBase):
         # self._watcher(self.log)
 
         self.log.info("##### Building Syscoin Testnet")
-        self._blockbook_ops.build_syscoin_testnet()
+        self._blockbook_ops.build_syscoin()
 
         self.log.info("##### Starting Syscoin Testnet Blockbook")
-        self._blockbook_ops.start_syscoin_testnet()
+        self._blockbook_ops.start_syscoin()
 
         self.log.info("##### Opening port")
         open_port(9193)

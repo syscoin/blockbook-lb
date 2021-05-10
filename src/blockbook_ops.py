@@ -32,30 +32,30 @@ class BlockbookOps:
 
         subprocess.call(["sh", os.path.join("scripts", "clone-blockbook.sh")])
 
-    def build_syscoin_testnet_backend(self):
+    def build_syscoin_backend(self):
 
         # subprocess.call(["sh", os.path.join("scripts", "build-backend.sh")])
         os.system("cd blockbook && make -d all-syscoin")
 
-    def install_syscoin_testnet_backend(self):
+    def install_syscoin_backend(self):
 
         # subprocess.call(["sh", os.path.join("scripts", "install-backend.sh")])
         os.system("cd blockbook/build && \
                     apt install -y ./backend-syscoin_4.2.1.0-satoshilabs-1_amd64.deb")
 
-    def start_syscoin_testnet_backend(self):
+    def start_syscoin_backend(self):
 
         subprocess.call([
             "systemctl", "start", "backend-syscoin.service"
         ])
 
-    def build_syscoin_testnet(self):
+    def build_syscoin(self):
 
         # subprocess.call(["sh", os.path.join("scripts", "build-app.sh")])
         os.system("cd blockbook/build && \
                     apt install -y ./blockbook-syscoin_0.3.54_amd64.deb")
 
-    def start_syscoin_testnet(self):
+    def start_syscoin(self):
 
         subprocess.call([
             "systemctl", "start", "blockbook-syscoin.service"
