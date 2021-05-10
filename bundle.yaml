@@ -1,7 +1,7 @@
 applications:
-  blockbook:
+  blockbook-testnet:
     charm      : ./blockbook-lb.charm
     constraints: instance-type=t3.2xlarge root-disk=100G
-    num_units  : 3
-    to: [new, new, new]
+    num_units  : 1
+    to: new
     expose: true
