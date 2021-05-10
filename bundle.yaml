@@ -3,5 +3,5 @@ applications:
     charm      : ./blockbook-lb.charm
     constraints: instance-type=t3.2xlarge root-disk=100G
     num_units  : 1
-    to: new
+    to: [new]
     expose: true
