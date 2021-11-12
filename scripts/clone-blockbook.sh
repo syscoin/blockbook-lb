@@ -12,4 +12,4 @@ pip3 install watchgod
 git clone https://github.com/syscoin/blockbook.git
 
 cd blockbook && \
-    git reset 53968ad0de6c0790da0ebb5e50279fb7d47d7ce3 --hard
+    git reset 3b9a4860567d3fab73c22199bfe1c192add5959f --hard
