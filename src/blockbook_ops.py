@@ -41,7 +41,7 @@ class BlockbookOps:
 
         # subprocess.call(["sh", os.path.join("scripts", "install-backend.sh")])
         os.system("cd blockbook/build && \
-                    apt install -y ./backend-syscoin_4.2.2.0-satoshilabs-1_amd64.deb")
+                    apt install -y ./backend-syscoin_4.3.0.0-satoshilabs-1_amd64.deb")
 
     def start_syscoin_backend(self):
 
@@ -53,7 +53,7 @@ class BlockbookOps:
 
         # subprocess.call(["sh", os.path.join("scripts", "build-app.sh")])
         os.system("cd blockbook/build && \
-                    apt install -y ./blockbook-syscoin_0.3.5_amd64.deb")
+                    apt install -y ./blockbook-syscoin_0.3.6_amd64.deb")
 
     def start_syscoin(self):
 
