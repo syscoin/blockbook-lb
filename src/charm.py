@@ -73,7 +73,7 @@ class BlockbookLbCharm(CharmBase):
         self._blockbook_ops.start_syscoin_testnet_backend()
 
         self.log.info("##### Watching backend to sync")
-        for i in range(60 * 30):
+        for i in range(60 * 20):
             self.log.info("#### Sleep: {}".format(i))
             time.sleep(1)
         # self._watcher(self.log)
