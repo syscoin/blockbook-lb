@@ -1,5 +1,5 @@
 applications:
-  blockbook-testnet-rc7:
+  blockbook-testnet-rc8:
     charm      : ./blockbook-lb.charm
     constraints: instance-type=t3.2xlarge root-disk=100G
     num_units  : 1
