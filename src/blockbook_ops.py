@@ -41,7 +41,7 @@ class BlockbookOps:
 
         # subprocess.call(["sh", os.path.join("scripts", "install-backend.sh")])
         os.system("cd blockbook/build && \
-                    apt install -y ./backend-syscoin-testnet_4.4.0.8-satoshilabs-1_amd64.deb")
+                    apt install -y ./backend-syscoin-testnet_4.4.0.9-satoshilabs-1_amd64.deb")
 
     def start_syscoin_testnet_backend(self):
 
